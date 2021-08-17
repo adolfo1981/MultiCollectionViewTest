@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MultiCollectionViewTest.CheckboxView">
+  <ContentView.Content>
+        <Grid Padding="10" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="{Binding ShortName}" FontAttributes="Bold" FontSize="Small"/>
+            <Image x:Name="MyImage" Grid.RowSpan="1" Grid.Column="2" />
+        </Grid>
+  </ContentView.Content>
+</ContentView>

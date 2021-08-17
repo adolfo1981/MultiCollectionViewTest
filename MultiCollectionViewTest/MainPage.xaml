@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:multicollectionviewtest="clr-namespace:MultiCollectionViewTest"
+             x:Class="MultiCollectionViewTest.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="multicollectionviewtest:CheckboxView">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" >
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="White" />
+                                    <Setter Property="CustomImageSource" Value="ic_check_box_outline_blank_black_24dp.png" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="White" />
+                                    <Setter Property="CustomImageSource" Value="ic_check_box_black_24dp.png" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout>
+            <CollectionView
+                ItemsSource="{Binding WildCardTeams}"
+                SelectionMode="Multiple"
+                SelectedItems="{Binding SelectedWildCardTeams, Mode=TwoWay}"
+                SelectionChangedCommand="{Binding WildCardTeamSelectionChangedCommand}"
+                HeightRequest="400">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.Header>
+                    <StackLayout>
+                        <Label Text="WildCard Teams"/>
+                        <BoxView HeightRequest="1" BackgroundColor="Silver" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <multicollectionviewtest:CheckboxView/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView
+                ItemsSource="{Binding QuarterFinalTeams}"
+                SelectionMode="Multiple"
+                SelectedItems="{Binding SelectedQuarterFinalTeams, Mode=TwoWay}"
+                SelectionChangedCommand="{Binding QuarterFinalTeamSelectionChangedCommand}"
+                HeightRequest="400">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.Header>
+                    <StackLayout>
+                        <Label Text="QuarterFinal Teams"/>
+                        <BoxView HeightRequest="1" BackgroundColor="Silver" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <multicollectionviewtest:CheckboxView/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
