@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:multicollectionviewtest="clr-namespace:MultiCollectionViewTest"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:multicollectionviewtest="clr-namespace:MultiCollectionViewTest" xmlns:behaviors="clr-namespace:MultiCollectionViewTest.Behaviors"
              x:Class="MultiCollectionViewTest.MainPage">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -34,6 +34,9 @@
                 SelectedItems="{Binding SelectedWildCardTeams, Mode=TwoWay}"
                 SelectionChangedCommand="{Binding WildCardTeamSelectionChangedCommand}"
                 HeightRequest="400">
+                <CollectionView.Behaviors>
+                    <behaviors:SelectionStateCollectionViewBehavior/>
+                </CollectionView.Behaviors>
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="2"/>
                 </CollectionView.ItemsLayout>
@@ -55,6 +58,9 @@
                 SelectedItems="{Binding SelectedQuarterFinalTeams, Mode=TwoWay}"
                 SelectionChangedCommand="{Binding QuarterFinalTeamSelectionChangedCommand}"
                 HeightRequest="400">
+                <CollectionView.Behaviors>
+                    <behaviors:SelectionStateCollectionViewBehavior/>
+                </CollectionView.Behaviors>                
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="2"/>
                 </CollectionView.ItemsLayout>
